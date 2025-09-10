@@ -1,0 +1,43 @@
+{
+  "name": "node-typescript-vitest-eslint",
+  "version": "1.0.0",
+  "description": "An initial setup for projects using node, typescript, vitest and eslint",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start:dev": "tsx watch src/app.ts",
+    "start": "node build/app.js",
+    "build": "tsup src --out-dir build",
+    "test": "vitest run --dir src/use-cases",
+    "test:unit:watch": "vitest --dir src/use-cases",
+    "test:e2e": "vitest run --dir src/http --config vitest.e2e.config.ts",
+    "test:e2e:watch": "vitest --dir src/http --config vitest.e2e.config.ts",
+    "test:coverage": "vitest run --coverage",
+    "test:ui": "vitest --ui"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CleversonCSousa/api-nodejs-solid.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CleversonCSousa/api-nodejs-solid/issues"
+  },
+  "homepage": "https://github.com/CleversonCSousa/api-nodejs-solid#readme",
+  "devDependencies": {
+    "@types/node": "22.15.29",
+    "@types/nodemailer": "7.0.1",
+    "@types/supertest": "6.0.3",
+    "@vitest/coverage-v8": "3.2.2",
+    "eslint": "8.57.1",
+    "supertest": "7.1.4",
+    "tsup": "8.5.0",
+    "tsx": "4.19.4",
+    "typescript": "5.8.3",
+    "typescript-eslint": "8.33.0",
+    "vite-tsconfig-paths": "5.1.4",
+    "vitest": "3.2.2"
+  }
+}
