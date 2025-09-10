@@ -54,6 +54,8 @@ describe("Authenticate Use Case", () => {
             lastName: "Doe"
         });
 
+        console.log(slug);
+
         await usersRepository.create({
             email: "johndoe@example.com",
             firstName: "John",
