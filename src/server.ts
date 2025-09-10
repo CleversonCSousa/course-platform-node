@@ -1,5 +1,5 @@
 import { app } from "./app";
-import { AppDataSource } from "./database/data-source";
+import { AppDataSource } from "./database/type-orm/data-source";
 
 AppDataSource.initialize().then(async () => {
     app.listen({
