@@ -20,7 +20,7 @@ export class User {
     @Column("varchar", {
         nullable: true
     })
-    phone!: string | true;
+    phone!: string | null;
 
     @Column("boolean", {
         name: "has_two_factor_authentication",
