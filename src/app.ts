@@ -1,1 +1,3 @@
-console.log("Testing initial setup");
+import fastify from "fastify";
+
+export const app = fastify();
