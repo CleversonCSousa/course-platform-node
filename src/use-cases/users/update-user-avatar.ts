@@ -23,8 +23,8 @@ export class UpdateUserAvatarUseCase {
         body
     } : UpdateUserAvatarUseCaseRequest ) {
 
-        const isValidFileType = /^(image\/(jpeg|png))$|^application\/pdf$/.test(fileType);
-
+        const isValidFileType = /^(image\/(jpeg|png))$/.test(fileType);
+        
         if(!isValidFileType) {
             throw new InvalidTypeFile();
         }
