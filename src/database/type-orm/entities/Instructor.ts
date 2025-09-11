@@ -17,7 +17,8 @@ export class Instructor {
 
     @Column({
         type: "enum",
-        enum: InstructorStatus
+        enum: InstructorStatus,
+        default: InstructorStatus.PENDING
     })
     status!: InstructorStatus;
 
