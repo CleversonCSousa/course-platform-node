@@ -1,18 +1,18 @@
 import { expect, describe, it, beforeEach } from "vitest";
-import { RegisterUseCase } from "./register";
 import { compare } from "bcryptjs";
 import { UsersRepository } from "@/repositories/users-repository";
 import { InMemoryUsersRepository } from "@/repositories/in-memory-users-repository";
 import { UserAlreadyExistsError } from "../errors/user-already-exists";
+import { RegisterUserUseCase } from "./register";
 
 let usersRepository : UsersRepository;
-let sut : RegisterUseCase;
+let sut : RegisterUserUseCase;
 
 describe("Register Use Case", () => {
 
     beforeEach(() => {
         usersRepository = new InMemoryUsersRepository();
-        sut = new RegisterUseCase(usersRepository);
+        sut = new RegisterUserUseCase(usersRepository);
     });
 
     it("should be able to register", async () => {
@@ -29,7 +29,7 @@ describe("Register Use Case", () => {
     it("the users password must be hashed after he registers", async () => {
 
         const usersRepository = new InMemoryUsersRepository();
-        const sut = new RegisterUseCase(usersRepository);
+        const sut = new RegisterUserUseCase(usersRepository);
         const { user } = await sut.execute({
             firstName: "John",
             lastName: "Doe",
