@@ -17,11 +17,6 @@ export class Category {
     })
     slug!: string;
 
-    @Column("varchar", {
-        nullable: true
-    })
-    description!: string | null;
-
     @CreateDateColumn({
         name: "created_at"
     })
