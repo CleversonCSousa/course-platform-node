@@ -6,7 +6,7 @@ export class InMemoryInstructorsRepository implements InstructorsRepository {
     private items: Instructor[] = [];
 
     async findById(id: string) {
-        const instructor = this.items.find(item => item.id === id);
+        const instructor = this.items.find(item => item.user.id === id);
 
         if(!instructor) {
             return null;

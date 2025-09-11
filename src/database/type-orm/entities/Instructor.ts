@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, ManyToOne, OneToOne, JoinColumn, OneToMany } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, ManyToOne, OneToOne, JoinColumn, OneToMany, PrimaryColumn } from "typeorm";
 import { Course } from "./Course";
 import { User } from "./User";
 
@@ -11,34 +11,26 @@ export enum InstructorStatus {
 
 @Entity()
 export class Instructor {
+  @PrimaryColumn("uuid", { name: "user_id" })
+  userId!: string;
 
-    @PrimaryGeneratedColumn("uuid")
-    id!: string;
+  @OneToOne(() => User)
+  @JoinColumn({ name: "user_id" })
+  user!: User;
 
-    @Column({
-        type: "enum",
-        enum: InstructorStatus,
-        default: InstructorStatus.PENDING
-    })
-    status!: InstructorStatus;
+  @Column({
+    type: "enum",
+    enum: InstructorStatus,
+    default: InstructorStatus.PENDING
+  })
+  status!: InstructorStatus;
 
-    @CreateDateColumn({
-        name: "created_at"
-    })
-    createdAt!: Date;
+  @CreateDateColumn({ name: "created_at" })
+  createdAt!: Date;
 
-    @UpdateDateColumn({
-        name: "update_at"
-    })
-    updatedAt!: Date;
+  @UpdateDateColumn({ name: "update_at" })
+  updatedAt!: Date;
 
-    @OneToOne(() => User)
-    @JoinColumn({
-        name: "user_id",
-    })
-    user!: User;
-
-    @OneToMany(() => Course, course => course.instructor)
-    courses!: Course[];
-
+  @OneToMany(() => Course, course => course.instructor)
+  courses!: Course[];
 }

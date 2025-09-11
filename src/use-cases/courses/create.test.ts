@@ -44,10 +44,9 @@ describe("Create Course Course Use Case", () => {
             })
         });
 
-        const instructor = await instructorsRepository.create({
+        await instructorsRepository.create({
             status: InstructorStatus.ACTIVE,
             user,
-            id: "instructor-id",
             createdAt: new Date(),
             updatedAt: new Date(),
             courses: []
@@ -68,13 +67,13 @@ describe("Create Course Course Use Case", () => {
             description: "A Begginer JavaScript Course",
             language: CourseLanguage.EN_US,
             categoryId: category.id,
-            instructorId: instructor.id
+            instructorId: user.id
         });
 
         expect(course).toBeTruthy();
         expect(course.id).toEqual(expect.any(String));
         expect(course.slug).toEqual("javascript-course");
-        expect(course.instructor.id).toEqual(instructor.id);
+        expect(course.instructor.user.id).toEqual(user.id);
         expect(course.category.id).toEqual(category.id);
     });
 
@@ -91,10 +90,9 @@ describe("Create Course Course Use Case", () => {
             })
         });
 
-        const instructor = await instructorsRepository.create({
+        await instructorsRepository.create({
             status: InstructorStatus.PENDING,
             user,
-            id: "instructor-id",
             createdAt: new Date(),
             updatedAt: new Date(),
             courses: []
@@ -115,7 +113,7 @@ describe("Create Course Course Use Case", () => {
             description: "A Begginer JavaScript Course",
             language: CourseLanguage.EN_US,
             categoryId: category.id,
-            instructorId: instructor.id
+            instructorId: user.id
         })).rejects.toBeInstanceOf(UnauthorizedError);
     });
 
@@ -132,10 +130,9 @@ describe("Create Course Course Use Case", () => {
             })
         });
 
-        const instructor = await instructorsRepository.create({
+        await instructorsRepository.create({
             status: InstructorStatus.SUSPENDED,
             user,
-            id: "instructor-id",
             createdAt: new Date(),
             updatedAt: new Date(),
             courses: []
@@ -156,7 +153,7 @@ describe("Create Course Course Use Case", () => {
             description: "A Begginer JavaScript Course",
             language: CourseLanguage.EN_US,
             categoryId: category.id,
-            instructorId: instructor.id
+            instructorId: user.id
         })).rejects.toBeInstanceOf(UnauthorizedError);
     });
 
@@ -173,10 +170,9 @@ describe("Create Course Course Use Case", () => {
             })
         });
 
-        const instructor = await instructorsRepository.create({
+        await instructorsRepository.create({
             status: InstructorStatus.BANNED,
             user,
-            id: "instructor-id",
             createdAt: new Date(),
             updatedAt: new Date(),
             courses: []
@@ -197,7 +193,7 @@ describe("Create Course Course Use Case", () => {
             description: "A Begginer JavaScript Course",
             language: CourseLanguage.EN_US,
             categoryId: category.id,
-            instructorId: instructor.id
+            instructorId: user.id
         })).rejects.toBeInstanceOf(UnauthorizedError);
     });
 
@@ -235,10 +231,9 @@ describe("Create Course Course Use Case", () => {
             })
         });
 
-        const instructor = await instructorsRepository.create({
+        await instructorsRepository.create({
             status: InstructorStatus.BANNED,
             user,
-            id: "instructor-id",
             createdAt: new Date(),
             updatedAt: new Date(),
             courses: []
@@ -250,7 +245,7 @@ describe("Create Course Course Use Case", () => {
             description: "A Begginer JavaScript Course",
             language: CourseLanguage.EN_US,
             categoryId: "category-id",
-            instructorId: instructor.id
+            instructorId: user.id
         })).rejects.toBeInstanceOf(ResourceNotFoundError);
     });
 });

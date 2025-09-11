@@ -13,7 +13,9 @@ export class TypeOrmInstructorsRepository implements InstructorsRepository {
     }
     async findById(id: string) {
         const instructor = await instructorRepository.findOneBy({
-            id
+            user: {
+                id
+            }
         });
 
         return instructor;
