@@ -1,4 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, ManyToOne, OneToOne, JoinColumn } from "typeorm";
+import { Instructor } from "./Instructor";
 
 @Entity()
 export class User {
@@ -75,5 +76,8 @@ export class User {
         name: "update_at"
     })
     updatedAt!: Date;
+
+    @OneToOne(() => Instructor, instructor => instructor.user)
+    instructor!: Instructor;
 
 }
