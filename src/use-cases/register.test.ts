@@ -46,8 +46,8 @@ describe("Register Use Case", () => {
         const email = "johndoe@example.com";
 
         await sut.execute({
-            firstName: "1",
-            lastName: "2",
+            firstName: "John",
+            lastName: "Doe",
             email,
             password: "123456"
         });
