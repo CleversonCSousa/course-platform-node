@@ -4,7 +4,7 @@ import { UpdateUserAvatarUseCase } from "./update-user-avatar";
 import { FakeUploader } from "@/storage/fake-uploader";
 import { beforeEach, describe, expect, it } from "vitest";
 import { makeRandomUserSlug } from "@/value-objects/factories/make-random-user-slug";
-import { InvalidTypeFile } from "./errors/invalid-type-file";
+import { InvalidTypeFile } from "../errors/invalid-type-file";
 
 let usersRepository : UsersRepository;
 let fakeUploader: FakeUploader;

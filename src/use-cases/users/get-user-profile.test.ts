@@ -4,7 +4,7 @@ import { UsersRepository } from "@/repositories/users-repository";
 import { GetUserProfileUseCase } from "./get-user-profile";
 import { makeRandomUserSlug } from "@/value-objects/factories/make-random-user-slug";
 import { InMemoryUsersRepository } from "@/repositories/in-memory-users-repository";
-import { ResourceNotFoundError } from "./errors/resource-not-found-error";
+import { ResourceNotFoundError } from "../errors/resource-not-found-error";
 
 let usersRepository : UsersRepository;
 let sut : GetUserProfileUseCase;

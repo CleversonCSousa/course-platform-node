@@ -1,7 +1,7 @@
 import { User } from "@/database/type-orm/entities/User";
 import { UsersRepository } from "@/repositories/users-repository";
 import { compare } from "bcryptjs";
-import { InvalidCredentialsError } from "./errors/invalid-credentials-error";
+import { InvalidCredentialsError } from "../errors/invalid-credentials-error";
 
 interface AuthenticateUseCaseRequest {
     email: string;

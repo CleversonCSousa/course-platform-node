@@ -1,16 +1,16 @@
 import sharp from "sharp";
 import { UsersRepository } from "@/repositories/users-repository";
 import { Uploader } from "@/storage/uploader";
-import { InvalidTypeFile } from "./errors/invalid-type-file";
+import { InvalidTypeFile } from "../errors/invalid-type-file";
 
-interface UpdateUserCoverUseCaseRequest {
+interface UpdateUserAvatarUseCaseRequest {
     userId: string;
     fileName: string;
     fileType: string;
     body: Buffer;
 }
 
-export class UpdateUserCoverUseCase {
+export class UpdateUserAvatarUseCase {
 
     constructor(private usersRepository: UsersRepository, private uploader: Uploader) {
         this.usersRepository = usersRepository;
@@ -21,7 +21,7 @@ export class UpdateUserCoverUseCase {
         fileName,
         fileType,
         body
-    } : UpdateUserCoverUseCaseRequest ) {
+    } : UpdateUserAvatarUseCaseRequest ) {
 
         const isValidFileType = /^(image\/(jpeg|png))$|^application\/pdf$/.test(fileType);
 
@@ -30,8 +30,8 @@ export class UpdateUserCoverUseCase {
         }
 
         const resizedImageBuffer = await sharp(body).resize({
-            height: 500,
-            width: 1500,
+            height: 460,
+            width: 460,
             fit: "cover"
         }).toBuffer();
 
@@ -45,11 +45,11 @@ export class UpdateUserCoverUseCase {
         await this.usersRepository.update({
             id: userId
         }, {
-            cover: url
+            avatar: url
         });
 
         return {
-            cover: url
+            avatar: url
         };
 
     }

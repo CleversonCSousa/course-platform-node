@@ -3,7 +3,7 @@ import { InMemoryUsersRepository } from "@/repositories/in-memory-users-reposito
 import { FakeUploader } from "@/storage/fake-uploader";
 import { beforeEach, describe, expect, it } from "vitest";
 import { makeRandomUserSlug } from "@/value-objects/factories/make-random-user-slug";
-import { InvalidTypeFile } from "./errors/invalid-type-file";
+import { InvalidTypeFile } from "../errors/invalid-type-file";
 import { UpdateUserCoverUseCase } from "./update-user-cover";
 
 let usersRepository : UsersRepository;
