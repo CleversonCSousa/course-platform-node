@@ -45,6 +45,7 @@ describe("Create Course Course Use Case", () => {
         });
 
         await instructorsRepository.create({
+            userId: user.id,
             status: InstructorStatus.ACTIVE,
             user,
             createdAt: new Date(),
@@ -91,6 +92,7 @@ describe("Create Course Course Use Case", () => {
         });
 
         await instructorsRepository.create({
+            userId: user.id,
             status: InstructorStatus.PENDING,
             user,
             createdAt: new Date(),
@@ -131,6 +133,7 @@ describe("Create Course Course Use Case", () => {
         });
 
         await instructorsRepository.create({
+            userId: user.id,
             status: InstructorStatus.SUSPENDED,
             user,
             createdAt: new Date(),
@@ -171,6 +174,7 @@ describe("Create Course Course Use Case", () => {
         });
 
         await instructorsRepository.create({
+            userId: user.id,
             status: InstructorStatus.BANNED,
             user,
             createdAt: new Date(),
@@ -232,7 +236,8 @@ describe("Create Course Course Use Case", () => {
         });
 
         await instructorsRepository.create({
-            status: InstructorStatus.BANNED,
+            userId: user.id,
+            status: InstructorStatus.SUSPENDED,
             user,
             createdAt: new Date(),
             updatedAt: new Date(),
