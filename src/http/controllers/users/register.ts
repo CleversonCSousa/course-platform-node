@@ -1,4 +1,4 @@
-import { TypeOrmUsersRepository } from "@/repositories/type-orm-users-repository";
+import { TypeOrmUsersRepository } from "@/repositories/users/type-orm-users-repository";
 import { UserAlreadyExistsError } from "@/use-cases/errors/user-already-exists";
 import { RegisterUserUseCase } from "@/use-cases/users/register";
 import { FastifyReply, FastifyRequest } from "fastify";

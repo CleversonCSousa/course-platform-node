@@ -1,7 +1,7 @@
 import { CourseDifficulty, CourseLanguage } from "@/database/type-orm/entities/Course";
 import { InstructorStatus } from "@/database/type-orm/entities/Instructor";
-import { CategoriesRepository } from "@/repositories/categories-repository";
-import { CoursesRepository } from "@/repositories/courses-repository";
+import { CategoriesRepository } from "@/repositories/categories/categories-repository";
+import { CoursesRepository } from "@/repositories/courses/courses-repository";
 import { UnauthorizedError } from "../errors/unauthorized-error";
 import { ResourceNotFoundError } from "../errors/resource-not-found-error";
 import { Slug } from "@/value-objects/slug";

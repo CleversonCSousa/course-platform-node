@@ -1,5 +1,5 @@
-import { UsersRepository } from "@/repositories/users-repository";
-import { InMemoryUsersRepository } from "@/repositories/in-memory-users-repository";
+import { UsersRepository } from "@/repositories/users/users-repository";
+import { InMemoryUsersRepository } from "@/repositories/users/in-memory-users-repository";
 import { UpdateUserAvatarUseCase } from "./update-user-avatar";
 import { FakeUploader } from "@/storage/fake-uploader";
 import { beforeEach, describe, expect, it } from "vitest";

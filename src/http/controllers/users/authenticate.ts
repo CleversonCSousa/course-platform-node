@@ -1,7 +1,7 @@
 import { z }  from "zod";
 import { FastifyReply, FastifyRequest } from "fastify";
 import { InvalidCredentialsError } from "@/use-cases/errors/invalid-credentials-error";
-import { TypeOrmUsersRepository } from "@/repositories/type-orm-users-repository";
+import { TypeOrmUsersRepository } from "@/repositories/users/type-orm-users-repository";
 import { AuthenticateUseCase } from "@/use-cases/users/authenticate";
 
 export async function authenticate(request: FastifyRequest, reply: FastifyReply) {

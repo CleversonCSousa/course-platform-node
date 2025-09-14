@@ -1,5 +1,5 @@
 import sharp from "sharp";
-import { UsersRepository } from "@/repositories/users-repository";
+import { UsersRepository } from "@/repositories/users/users-repository";
 import { Uploader } from "@/storage/uploader";
 import { InvalidTypeFile } from "../errors/invalid-type-file";
 

@@ -1,8 +1,8 @@
 import { expect, describe, it, beforeEach } from "vitest";
 import { hash } from "bcryptjs";
-import { UsersRepository } from "@/repositories/users-repository";
+import { UsersRepository } from "@/repositories/users/users-repository";
 import { makeRandomUserSlug } from "../../value-objects/factories/make-random-user-slug";
-import { InMemoryUsersRepository } from "@/repositories/in-memory-users-repository";
+import { InMemoryUsersRepository } from "@/repositories/users/in-memory-users-repository";
 import { AuthenticateUseCase } from "./authenticate";
 import { InvalidCredentialsError } from "../errors/invalid-credentials-error";
 

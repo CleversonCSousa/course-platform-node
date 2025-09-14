@@ -1,8 +1,8 @@
 
 import { CourseDifficulty, CourseLanguage } from "@/database/type-orm/entities/Course";
-import { TypeOrmCategoriesRepository } from "@/repositories/type-orm-categories-repository";
-import { TypeOrmCoursesRepository } from "@/repositories/type-orm-courses-repository";
-import { TypeOrmInstructorsRepository } from "@/repositories/type-orm-instructors-repository";
+import { TypeOrmCategoriesRepository } from "@/repositories/categories/type-orm-categories-repository";
+import { TypeOrmCoursesRepository } from "@/repositories/courses/type-orm-courses-repository";
+import { TypeOrmInstructorsRepository } from "@/repositories/instructors/type-orm-instructors-repository";
 import { CreateCourseUseCase } from "@/use-cases/courses/create";
 import { ResourceNotFoundError } from "@/use-cases/errors/resource-not-found-error";
 import { UnauthorizedError } from "@/use-cases/errors/unauthorized-error";

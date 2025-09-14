@@ -1,5 +1,5 @@
-import { UsersRepository } from "@/repositories/users-repository";
-import { InMemoryUsersRepository } from "@/repositories/in-memory-users-repository";
+import { UsersRepository } from "@/repositories/users/users-repository";
+import { InMemoryUsersRepository } from "@/repositories/users/in-memory-users-repository";
 import { beforeEach, describe, expect, it } from "vitest";
 import { makeRandomUserSlug } from "@/value-objects/factories/make-random-user-slug";
 import { UpdateUserBiographyUseCase } from "./update-user-biography";

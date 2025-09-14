@@ -1,7 +1,7 @@
 
 import { CourseDifficulty, CourseLanguage } from "@/database/type-orm/entities/Course";
-import { TypeOrmCategoriesRepository } from "@/repositories/type-orm-categories-repository";
-import { TypeOrmCoursesRepository } from "@/repositories/type-orm-courses-repository";
+import { TypeOrmCategoriesRepository } from "@/repositories/categories/type-orm-categories-repository";
+import { TypeOrmCoursesRepository } from "@/repositories/courses/type-orm-courses-repository";
 import { UpdateCourseUseCase } from "@/use-cases/courses/update";
 import { DuplicatedSlugError } from "@/use-cases/errors/duplicated-slug-error";
 import { ResourceNotFoundError } from "@/use-cases/errors/resource-not-found-error";

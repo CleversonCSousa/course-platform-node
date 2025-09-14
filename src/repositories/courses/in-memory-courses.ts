@@ -2,7 +2,7 @@
 import { randomUUID } from "crypto";
 import { CoursesRepository } from "./courses-repository";
 import { Course } from "@/database/type-orm/entities/Course";
-import { InstructorsRepository } from "./instructors-repository";
+import { InstructorsRepository } from "../instructors/instructors-repository";
 
 export class InMemoryCoursesRepository implements CoursesRepository {
     private items: Course[] = [];

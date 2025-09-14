@@ -1,5 +1,5 @@
 import { User } from "@/database/type-orm/entities/User";
-import { UsersRepository } from "@/repositories/users-repository";
+import { UsersRepository } from "@/repositories/users/users-repository";
 import { Slug } from "../../value-objects/slug";
 import { UserAlreadyExistsError } from "../errors/user-already-exists";
 import { hash } from "bcryptjs";

@@ -1,5 +1,5 @@
 import { env } from "@/env";
-import { TypeOrmUsersRepository } from "@/repositories/type-orm-users-repository";
+import { TypeOrmUsersRepository } from "@/repositories/users/type-orm-users-repository";
 import { R2Storage } from "@/storage/r2-storage";
 import { InvalidTypeFile } from "@/use-cases/errors/invalid-type-file";
 import { UpdateUserAvatarUseCase } from "@/use-cases/users/update-user-avatar";
