@@ -53,9 +53,21 @@ export class Course {
     })
     updatedAt!: Date;
 
+    @Column("uuid", {
+        name: 'category_id',
+    })
+    categoryId!: string;
+
+    @Column("uuid", {
+        name: 'instructor_id'
+    })
+    instructorId!: string;
+
     @ManyToOne(() => Instructor, instructor => instructor.courses)
+    @JoinColumn({ name: "instructor_id" })
     instructor!: Instructor;
 
     @ManyToOne(() => Category, category => category.courses)
+    @JoinColumn({ name: "category_id" })
     category!: Category;
 }

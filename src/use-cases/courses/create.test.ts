@@ -26,7 +26,7 @@ describe("Create Course Course Use Case", () => {
     beforeEach(() => {
         usersRepository = new InMemoryUsersRepository();
         instructorsRepository = new InMemoryInstructorsRepository();
-        coursesRepository = new InMemoryCoursesRepository();
+        coursesRepository = new InMemoryCoursesRepository(instructorsRepository);
         categoriesRepository = new InMemoryCategoriesRepository();
         sut = new CreateCourseUseCase(coursesRepository, categoriesRepository, instructorsRepository);
     });
@@ -68,7 +68,7 @@ describe("Create Course Course Use Case", () => {
             description: "A Begginer JavaScript Course",
             language: CourseLanguage.EN_US,
             categoryId: category.id,
-            instructorId: user.id
+            instructorId: user.id,
         });
 
         expect(course).toBeTruthy();
