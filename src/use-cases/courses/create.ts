@@ -6,6 +6,7 @@ import { InstructorsRepository } from "@/repositories/instructors/instructors-re
 import { Slug } from "@/value-objects/slug";
 import { UnauthorizedError } from "../errors/unauthorized-error";
 import { ResourceNotFoundError } from "../errors/resource-not-found-error";
+import { DuplicatedSlugError } from "../errors/duplicated-slug-error";
 
 interface CreateCourseUseCaseRequest {
     instructorId: string;
@@ -36,6 +37,12 @@ export class CreateCourseUseCase {
 
         if(instructor.status !== InstructorStatus.ACTIVE) {
             throw new UnauthorizedError();
+        }
+
+        const courseAlreadyExists = await this.coursesRepository.findBySlug(Slug.createFromText(title).value);
+
+        if(courseAlreadyExists) {
+            throw new DuplicatedSlugError();
         }
 
         const newCourse = new Course();

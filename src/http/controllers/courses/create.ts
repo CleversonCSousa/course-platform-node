@@ -4,6 +4,7 @@ import { TypeOrmCategoriesRepository } from "@/repositories/categories/type-orm-
 import { TypeOrmCoursesRepository } from "@/repositories/courses/type-orm-courses-repository";
 import { TypeOrmInstructorsRepository } from "@/repositories/instructors/type-orm-instructors-repository";
 import { CreateCourseUseCase } from "@/use-cases/courses/create";
+import { DuplicatedSlugError } from "@/use-cases/errors/duplicated-slug-error";
 import { ResourceNotFoundError } from "@/use-cases/errors/resource-not-found-error";
 import { UnauthorizedError } from "@/use-cases/errors/unauthorized-error";
 import { FastifyReply, FastifyRequest } from "fastify";
@@ -41,6 +42,12 @@ export async function create(request: FastifyRequest, reply: FastifyReply) {
 
         if(err instanceof UnauthorizedError) {
             return reply.status(401).send({
+                message: err.message
+            });
+        }
+
+        if(err instanceof DuplicatedSlugError) {
+            return reply.status(409).send({
                 message: err.message
             });
         }

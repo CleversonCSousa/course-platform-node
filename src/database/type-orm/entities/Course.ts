@@ -1,6 +1,7 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, ManyToOne, OneToOne, JoinColumn, ManyToMany, JoinTable } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, ManyToOne, OneToOne, JoinColumn, ManyToMany, JoinTable, OneToMany } from "typeorm";
 import { Instructor } from "./Instructor";
 import { Category } from "./Category";
+import { User } from "./User";
 
 export enum CourseDifficulty {
     BEGINNER = "beginner",
@@ -70,4 +71,10 @@ export class Course {
     @ManyToOne(() => Category, category => category.courses)
     @JoinColumn({ name: "category_id" })
     category!: Category;
+
+    @ManyToMany(() => User, (user) => user.enrolledCourses)
+    courseEnrollees!: User[]
+
+
+
 }

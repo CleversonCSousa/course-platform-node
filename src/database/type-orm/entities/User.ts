@@ -1,5 +1,6 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, ManyToOne, OneToOne, JoinColumn } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, ManyToOne, OneToOne, JoinColumn, OneToMany, ManyToMany, JoinTable } from "typeorm";
 import { Instructor } from "./Instructor";
+import { Course } from "./Course";
 
 @Entity()
 export class User {
@@ -79,5 +80,20 @@ export class User {
 
     @OneToOne(() => Instructor, instructor => instructor.user)
     instructor!: Instructor;
+
+    @ManyToMany(() => Course, (course) => course.courseEnrollees)
+    @JoinTable({
+            name: 'user_course',
+            joinColumn: {
+                name: "user_id",
+                referencedColumnName: "id"
+            },
+            inverseJoinColumn: {
+                name: "course_id",
+                referencedColumnName: "id"
+            }
+    })
+    enrolledCourses!: Course[]
+    
 
 }

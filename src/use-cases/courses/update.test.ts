@@ -75,7 +75,8 @@ describe("Update Course Course Use Case", () => {
             category,
             instructor,
             categoryId: category.id,
-            instructorId: instructor.userId
+            instructorId: instructor.userId,
+            courseEnrollees: []
         });
 
         const newCategory = await categoriesRepository.create({
@@ -150,7 +151,8 @@ describe("Update Course Course Use Case", () => {
             category,
             instructor,
             categoryId: category.id,
-            instructorId: instructor.userId
+            instructorId: instructor.userId,
+            courseEnrollees: []
         });
 
         const course = await coursesRepository.create({
@@ -165,7 +167,8 @@ describe("Update Course Course Use Case", () => {
             category,
             instructor,
             categoryId: category.id,
-            instructorId: instructor.userId
+            instructorId: instructor.userId,
+            courseEnrollees: []
         });
 
         await expect(() => sut.execute({
@@ -223,7 +226,8 @@ describe("Update Course Course Use Case", () => {
             createdAt: new Date(),
             updatedAt: new Date(),
             categoryId: category.id,
-            instructorId: instructor.userId
+            instructorId: instructor.userId,
+            courseEnrollees: []
         });
 
         await expect(() => sut.execute({
@@ -280,7 +284,8 @@ describe("Update Course Course Use Case", () => {
             createdAt: new Date(),
             updatedAt: new Date(),
             categoryId: category.id,
-            instructorId: instructor.userId
+            instructorId: instructor.userId,
+            courseEnrollees: []
         });
 
         await expect(() => sut.execute({
@@ -337,7 +342,8 @@ describe("Update Course Course Use Case", () => {
             createdAt: new Date(),
             updatedAt: new Date(),
             categoryId: category.id,
-            instructorId: instructor.userId
+            instructorId: instructor.userId,
+            courseEnrollees: []
         });
 
         await expect(() => sut.execute({
@@ -404,6 +410,7 @@ describe("Update Course Course Use Case", () => {
             updatedAt: new Date(),
             categoryId: category.id,
             instructorId: ownerInstructor.userId,
+            courseEnrollees: []
         });
 
         await expect(() => sut.execute({
